@@ -13,7 +13,7 @@ A Internet das Coisas (IoT) permite a conexão de dispositivos do mundo físico 
 
 ## Componentes
 
--O Simulide não tinha o sensor PIR, então adaptamos para o ultrassônico com ldr.
+- O Simulide não tinha o sensor PIR, então adaptamos para o ultrassônico com ldr.
 
 ### Hardware
 
