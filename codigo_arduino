@@ -1,0 +1,148 @@
+#include <ArduinoJson.h>
+#include <LiquidCrystal.h>
+
+#define trigPin 10
+#define echoPin 9
+#define ledPin 2
+#define ldrPin 4
+
+LiquidCrystal lcd(13, 12, 8, 7, 6, 5);
+
+int counter;
+float duration;
+float distance;
+unsigned long time;
+unsigned long tempoInicioDetecao = 0;
+unsigned long tempoTotalDetecao = 0;
+unsigned long tempoLigadoMaximo = 0;
+float energiaConsumidaMaxima = 0;
+const int potenciaLED = 2;
+bool presencaDetetada = false;
+bool ambienteEscuro = false;
+
+void setup() 
+{
+  Serial.begin(9600);
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  pinMode(ledPin, OUTPUT);
+  pinMode(ldrPin, INPUT);
+  digitalWrite(ledPin, LOW);
+
+  lcd.begin(16, 2);
+  lcd.clear();
+}
+
+void loop() 
+{
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+
+  duration = 0;
+  counter = 0;
+  while (--counter != 0) 
+  {
+    if (PINB & 2) 
+    {
+      time = micros();
+      break;
+    }
+  }
+  while (--counter != 0) 
+  {
+    if ((PINB & 2) == 0) 
+    {
+      duration = micros() - time;
+      break;
+    }
+  }
+
+  distance = (duration / 2) * 0.0344;
+
+  int ldrValue = digitalRead(ldrPin);
+
+  if (ldrValue == LOW && distance < 20) 
+  {
+    if (!presencaDetetada) 
+    {
+      presencaDetetada = true;
+    }
+    
+    ambienteEscuro = true;
+    digitalWrite(ledPin, HIGH);
+    unsigned long tempoAtual = millis();
+    
+    if (!tempoInicioDetecao) 
+    {
+      tempoInicioDetecao = tempoAtual;
+    }
+    
+    unsigned long tempoLigado = tempoAtual - tempoInicioDetecao;
+    float energiaConsumida = (float)tempoLigado / 3600000.0 * potenciaLED;
+    
+    if (tempoLigado > tempoLigadoMaximo) 
+    {
+      tempoLigadoMaximo = tempoLigado;
+      energiaConsumidaMaxima = energiaConsumida;
+    }
+    
+    if (tempoLigado % 1000 == 0) 
+    {
+      lcd.clear();
+      lcd.setCursor(0, 0);
+      lcd.print("Execucao: ");
+      lcd.print(tempoLigado / 1000);
+      lcd.print("s");
+      
+      lcd.setCursor(0, 1);
+      lcd.print("Consumo: ");
+      lcd.print(energiaConsumida, 2);
+      lcd.print(" Wh");
+      
+      Serial.print("Tempo Ligado: ");
+      Serial.print(tempoLigado / 1000);
+      Serial.print(" segundos, Consumo: ");
+      Serial.print(energiaConsumida);
+      Serial.println(" Wh.");
+    }
+  } 
+  else 
+  {
+    if (presencaDetetada) 
+    {
+      Serial.println("Nenhuma presenca detectada ou ambiente claro. Desligando o LED.");
+      lcd.clear();
+      lcd.setCursor(0, 0);
+      lcd.print("Execucao: ");
+      lcd.print(tempoLigadoMaximo / 1000);
+      lcd.print("s");
+      
+      lcd.setCursor(0, 1);
+      lcd.print("Consumo: ");
+      lcd.print(energiaConsumidaMaxima, 2);
+      lcd.print(" Wh");
+      
+      Serial.print("O tempo de consumo maximo foi de ");
+      Serial.print(tempoLigadoMaximo / 1000);
+      Serial.print(" segundos e a energia consumida foi de ");
+      Serial.print(energiaConsumidaMaxima);
+      Serial.println(" Wh.");
+      
+      tempoInicioDetecao = 0;
+      tempoLigadoMaximo = 0;
+      energiaConsumidaMaxima = 0;
+      presencaDetetada = false;
+      
+      if (ambienteEscuro) 
+      {
+        ambienteEscuro = false;
+      }
+    }
+    
+    digitalWrite(ledPin, LOW);
+  }
+}
