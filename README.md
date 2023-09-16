@@ -50,5 +50,30 @@ Após a configuração, o sistema estará coletando dados do sensor ultrassônic
 
 ![image](https://github.com/WhipDino/Sprint3_Edge/assets/95549158/78764c4c-b83f-4228-b49e-0187f2a331b6)
 
+## Integração
+
+Neste projeto, realizamos uma integração eficaz entre o Arduino, o Node-RED e a plataforma TagoIO para coleta, processamento e visualização de dados em tempo real.
+
+### Conexão Arduino e Node-RED
+
+1. **Hardware:** Configuramos um Arduino Uno para coletar dados de sensores, incluindo um sensor ultrassônico HC-SR04 e um LDR (Light-Dependent Resistor). A conexão física entre os sensores e o Arduino foi estabelecida de acordo com o esquema de ligação apropriado.
+
+2. **Programação do Arduino:** Desenvolvemos o código do Arduino utilizando a Arduino IDE. O código foi projetado para ler os dados dos sensores e transmiti-los para o Node-RED através do protocolo MQTT.
+
+3. **Node-RED:** No Node-RED, configuramos um fluxo para receber os dados do Arduino via MQTT. Utilizamos o Node-RED para processar os dados, realizar a lógica desejada e, em seguida, transmiti-los para a plataforma TagoIO.
+
+### Conexão Node-RED e TagoIO
+
+1. **TagoIO:** Criamos uma conta no TagoIO e configuramos um _Device_ para representar o Arduino em nossa aplicação. Em seguida, configuramos uma integração MQTT no TagoIO para receber os dados do Node-RED.
+
+2. **Node-RED para TagoIO:** No Node-RED, usamos um nó MQTT para enviar os dados coletados para o TagoIO. Certificamo-nos de configurar corretamente o endereço do servidor MQTT do TagoIO e as credenciais de segurança necessárias.
+
+### Dashboard Personalizado
+
+No TagoIO, criamos um dashboard personalizado para visualizar os dados coletados em tempo real. Utilizamos widgets personalizados para exibir informações relevantes, como distância medida pelo sensor ultrassônico e níveis de luminosidade detectados pelo LDR.
+
+Essa integração entre o Arduino, Node-RED e TagoIO permite o monitoramento e análise contínuos de dados de sensores em tempo real, fornecendo informações valiosas sobre o ambiente monitorado.
+
+
 
 
