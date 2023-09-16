@@ -39,19 +39,5 @@ A Internet das Coisas (IoT) permite a conexão de dispositivos do mundo físico 
 
 Após a configuração, o sistema estará coletando dados do sensor ultrassônico e do LDR. Esses dados serão enviados para o Node-RED e, em seguida, para o TagoIO. Você pode visualizar e analisar esses dados através do seu dashboard personalizado no TagoIO.
 
-## Contribuições
 
-Contribuições são bem-vindas! Se você tiver alguma melhoria ou correção para sugerir, sinta-se à vontade para abrir uma _pull request_.
-
-## Licença
-
-Este projeto está licenciado sob a Licença MIT - consulte o arquivo [LICENSE](LICENSE) para obter detalhes.
-
-## Autores
-
-- [Seu Nome](https://github.com/seu-usuario) - Desenvolvedor principal
-
-## Agradecimentos
-
-- Agradecimentos especiais a [Nome do Colaborador](https://github.com/colaborador) por sua contribuição valiosa.
 
