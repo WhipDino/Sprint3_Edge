@@ -48,3 +48,7 @@ Após a configuração, o sistema estará coletando dados do sensor ultrassônic
 
 
 
+![image](https://github.com/WhipDino/Sprint3_Edge/assets/95549158/78764c4c-b83f-4228-b49e-0187f2a331b6)
+
+
+
