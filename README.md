@@ -45,7 +45,7 @@ A Internet das Coisas (IoT) permite a conexão de dispositivos do mundo físico 
 ## Uso
 
 Após a configuração, o sistema estará coletando dados do sensor ultrassônico e do LDR. Esses dados serão enviados para o Node-RED e, em seguida, para o TagoIO. Você pode visualizar e analisar esses dados através do seu dashboard personalizado no TagoIO.
-- Tokend de acesso: c4b8e693-5672-4303-bdae-52ce965afad4
+- Token de acesso: c4b8e693-5672-4303-bdae-52ce965afad4
 
 
 
