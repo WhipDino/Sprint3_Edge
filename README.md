@@ -75,6 +75,9 @@ Neste projeto, realizamos uma integração eficaz entre o Arduino, o Node-RED e 
 
 2. **Node-RED para TagoIO:** No Node-RED, usamos um nó MQTT para enviar os dados coletados para o TagoIO. Certificamo-nos de configurar corretamente o endereço do servidor MQTT do TagoIO e as credenciais de segurança necessárias.
 
+![image](https://github.com/WhipDino/Sprint3_Edge/assets/95549158/6be54f28-f21c-4bb3-9c70-e03a157263b1)
+
+
 ### Dashboard Personalizado
 
 No TagoIO, criamos um dashboard personalizado para visualizar os dados coletados em tempo real. Utilizamos widgets personalizados para exibir informações relevantes, como distância medida pelo sensor ultrassônico e níveis de luminosidade detectados pelo LDR.
