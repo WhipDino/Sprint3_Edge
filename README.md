@@ -50,6 +50,8 @@ Após a configuração, o sistema estará coletando dados do sensor ultrassônic
 
 ![image](https://github.com/WhipDino/Sprint3_Edge/assets/95549158/78764c4c-b83f-4228-b49e-0187f2a331b6)
 
+
+
 ## Integração
 
 Neste projeto, realizamos uma integração eficaz entre o Arduino, o Node-RED e a plataforma TagoIO para coleta, processamento e visualização de dados em tempo real.
@@ -61,6 +63,8 @@ Neste projeto, realizamos uma integração eficaz entre o Arduino, o Node-RED e 
 2. **Programação do Arduino:** Desenvolvemos o código do Arduino utilizando a Arduino IDE. O código foi projetado para ler os dados dos sensores e transmiti-los para o Node-RED através do protocolo MQTT.
 
 3. **Node-RED:** No Node-RED, configuramos um fluxo para receber os dados do Arduino via MQTT. Utilizamos o Node-RED para processar os dados, realizar a lógica desejada e, em seguida, transmiti-los para a plataforma TagoIO.
+
+![image](https://github.com/WhipDino/Sprint3_Edge/assets/95549158/2869481a-747d-40d6-86a6-465c318f6d82)
 
 ### Conexão Node-RED e TagoIO
 
@@ -74,6 +78,7 @@ No TagoIO, criamos um dashboard personalizado para visualizar os dados coletados
 
 Essa integração entre o Arduino, Node-RED e TagoIO permite o monitoramento e análise contínuos de dados de sensores em tempo real, fornecendo informações valiosas sobre o ambiente monitorado.
 
+![image](https://github.com/WhipDino/Sprint3_Edge/assets/95549158/644ccc2e-598c-4331-845e-617c407d3417)
 
 
 
