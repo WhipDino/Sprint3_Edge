@@ -2,6 +2,11 @@
 
 Este projeto demonstra como criar um sistema de monitoramento de ambiente utilizando um Arduino, sensores ultrassônicos, um LDR (Light-Dependent Resistor), um display LCD, e IoT (Internet das Coisas) para visualizar e analisar os dados coletados em tempo real.
 
+# Sensores nos postes
+
+O foco do nosso projeto é diminuir o consumo de energia e a poluição visual causada pelos postes de luz. Utilizaremos luz baixa enquanto ninguém estiver próximo, assim que for detectada a presença de um pedestre ou carro, os postes atingirão o nível de luminosidade necessário para a locomoção naquele trecho. Dessa forma é possível usar as tecnologias estudadas no curso para contribuir com a ideia de cidades inteligentes e sustentabilidade. Com os dados coletados pelos sensores de movimento, seremos capazes de entender o fluxo de pessoas e automóveis em cada local onde a tecnologia for utilizada, com essas informações é possível reduzir os tráfego em certas regiões e ajudar aplicativos de GPS a traçarem melhores rotas.
+
+
 ## Visão Geral
 
 A Internet das Coisas (IoT) permite a conexão de dispositivos do mundo físico à internet, possibilitando o monitoramento e controle remoto de diversos parâmetros. Neste projeto, utilizamos um Arduino para coletar dados de um sensor ultrassônico e um LDR, que medem distância e luminosidade, respectivamente. Esses dados são transmitidos para um servidor Node-RED via MQTT (Message Queuing Telemetry Transport) e, em seguida, enviados para a plataforma TagoIO para análise e visualização.
